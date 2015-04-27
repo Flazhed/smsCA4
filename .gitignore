@@ -29,4 +29,4 @@ build/Release
 node_modules/**
 
 # .idea file is ignored, no clue if this is the right thing to do
-.idea/**
+.idea/
