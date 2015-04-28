@@ -20,7 +20,7 @@ function _getWiki(title, callback){
 
 function _findWiki(searchString, callback){
 
-        wiki.find({$or:[{title : searchString}, {abstract : searchString}]}, function (err, result) {
+        wiki.find({$or:[{title : new RegExp(searchString, 'i')}, {abstract :  new RegExp(searchString, 'i')}]}, 'title abstract', function (err, result) {
             if(err){
                 callback(err);
             }
@@ -45,7 +45,7 @@ function _getCategories(callback){
 
 function _getWikiWithCategory(category, callback){
 
-    wiki.find({categories : category}, function (err, result) {
+    wiki.find({categories : category}, 'title abstract' ,  function (err, result) {
 
         if(err){
             callback(err);
@@ -57,9 +57,17 @@ function _getWikiWithCategory(category, callback){
 }
 
 
-_findWiki("java", function (err, result) {
-    console.log(result);
-})
+//_findWiki("java", function (err, result) {
+//    console.log(JSON.parse(result).length);
+//})
+
+//_getCategories(function(err, result){
+//    console.log(result)
+//})
+
+//_getWikiWithCategory("1970 births", function(err, result){
+//    console.log(result)
+//})
 
 module.exports = {
     getWiki : _getWiki,
