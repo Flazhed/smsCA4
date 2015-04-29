@@ -6,7 +6,7 @@
     </p>
 </div>
 <div>
-    <a href="{{wikiDetails.url}}" tooltip="{{wikiDetails.title}}">Read on Wikipedia</a>
+    <a href="{{wikiDetails.url}}" tooltip="{{wikiDetails.url}}">Read on Wikipedia</a>
 </div>
 <div>
     <h2>Headings</h2>
@@ -18,6 +18,6 @@
 <div>
     <h2>Links</h2>
     <ul>
-        <li ng-repeat="link in wikiDetails.links">{{link}}</li>
+        <a href="{{link}}" ng-repeat="link in wikiDetails.links"><li>{{link}}</li></a>
     </ul>
 </div>
