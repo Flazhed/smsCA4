@@ -1,0 +1,23 @@
+<h2>{{wikiDetails.title}}</h2>
+<hr/>
+<div>
+    <p>
+        {{wikiDetails.abstract}}
+    </p>
+</div>
+<div>
+    <a href="{{wikiDetails.url}}" tooltip="{{wikiDetails.title}}">Read on Wikipedia</a>
+</div>
+<div>
+    <h2>Headings</h2>
+    <ul>
+        <li ng-repeat="elem in wikiDetails.headings">{{elem.heading}}</li>
+    </ul>
+
+</div>
+<div>
+    <h2>Links</h2>
+    <ul>
+        <li ng-repeat="link in wikiDetails.links">{{link}}</li>
+    </ul>
+</div>
