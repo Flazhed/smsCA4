@@ -19,5 +19,5 @@ angular.module('CA4App', [
             templateUrl: "./Task1/task1Details.html",
             controller: "Task1ControllerDetails"
         });
-        $routeProvider.otherwise({redirectTo: '/view1'});
+        $routeProvider.otherwise({redirectTo: '/task1'});
     }]);

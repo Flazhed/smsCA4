@@ -33,6 +33,8 @@ angular.module('CA4App.controllers', []).
             }
         }
 
+        $scope.title = "Task 1"
+
     }])
     .controller("Task1ControllerDetails", ["$scope", "$routeParams", "Task1Factory", function ($scope, $routeParams, Task1Factory) {
 

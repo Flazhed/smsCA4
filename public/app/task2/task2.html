@@ -1,7 +1,13 @@
 <div ng-controller="Task1Controller">
 
-    <input ng-model="searchField" type="text" placeholder="Search on a topic">
-    <button ng-click="performSearch()">Search</button>
+    <h3>Task 2</h3>
+
+
+    <form class="form-inline">
+        <input class="form-control" ng-model="searchField" type="text" placeholder="Search on a topic">
+        <button class="btn btn-primary" ng-click="performSearch()"><span class="glyphicon glyphicon-thumbs-up"></span> Search</button>
+    </form>
+
 
     <br>
     <ul>
@@ -14,9 +20,12 @@
         <!--</accordion>-->
 
         <accordion close-others="false">
-            <accordion-group heading="{{result.title}}" ng-click="loadAcordion(result)" ng-repeat="result in result" tooltip-placement="right" tooltip="{{result.abstract}}">
+            <accordion-group heading="{{result.title}}" ng-click="loadAcordion(result)" ng-repeat="result in result"
+                             tooltip-placement="right" tooltip="{{result.abstract}}">
                 <h1>{{result.content.title}}</h1>
+
                 <p>{{result.content.abstract}}</p>
+
                 <div>
                     <h3 ng-show="result.content.categories.length">Categories</h3>
                     <ul>
@@ -34,7 +43,9 @@
                     <h3>Links</h3>
 
                     <ul>
-                        <a href="{{link}}" ng-repeat="link in result.content.links"><li>{{link}}</li></a>
+                        <a href="{{link}}" ng-repeat="link in result.content.links">
+                            <li>{{link}}</li>
+                        </a>
                     </ul>
                 </div>
 
