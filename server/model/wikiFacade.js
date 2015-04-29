@@ -8,7 +8,7 @@ var wiki = mongoose.model('Wiki');
 
 function _getWiki(title, callback){
 
-    wiki.find({title : title }, function (err, result) {
+    wiki.findOne({title : title }, function (err, result) {
         if(err){
             callback(err);
         }

@@ -5,13 +5,13 @@ var mongoose = require('mongoose');
 global.TEST_DATABASE = "mongodb://localhost/TestDBWiki";
 
 //Make sure we use the test DB instead of the other
-require("../model/db");
+require("../../server/model/db");
 
-var _wikis = mongoose.model('Wikis');
+var _wikis = mongoose.model('Wiki');
 
-var wikiArray = require('./wikiList');
+var wikiArray = require('./wikiList').wikiArray;
 
-var wikiFacade = //require wikifacade
+var wikiFacade = require('../../server/model/wikiFacade')
 
 describe("Testing of the Wiki Facade", function(){
 
@@ -33,31 +33,36 @@ describe("Testing of the Wiki Facade", function(){
 
     it("getWiki - Test that the facade returns a wiki object on a given title", function(done){
 
-        var randomLocalWiki = _wikis[Math.floor(Math.random() * _wikis.length-1)]
+        var randomLocalWiki = wikiArray[Math.floor(Math.random() * wikiArray.length)];
 
-
-    })
-
-    it("findWiki - Should return a list of titles and abstracts of wiki objects that matches the search", function(done){
-
-
-
+        wikiFacade.getWiki(randomLocalWiki.title, function(err, result){
+            var resultObj = JSON.parse(result);
+            resultObj.title.should.equal(randomLocalWiki.title);
+            done();
+        })
 
     })
 
-    it("getCategories - Should return a list of all distinct categories", function(done){
-
-
-
-
-    })
-
-
-    it("getWikisWithCategory - Should return a list of title and abstract for wiki objects that matches the given category", function(done){
-
-
-
-
-    })
+    //it("findWiki - Should return a list of titles and abstracts of wiki objects that matches the search", function(done){
+    //
+    //
+    //
+    //
+    //})
+    //
+    //it("getCategories - Should return a list of all distinct categories", function(done){
+    //
+    //
+    //
+    //
+    //})
+    //
+    //
+    //it("getWikisWithCategory - Should return a list of title and abstract for wiki objects that matches the given category", function(done){
+    //
+    //
+    //
+    //
+    //})
 
 })
