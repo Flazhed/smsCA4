@@ -1,8 +1,8 @@
 'use strict';
 
-describe('myAppRename.view1 module', function() {
+describe('CA4App.view1 module', function() {
 
-  beforeEach(module('myAppRename.view1'));
+  beforeEach(module('CA4App.view1'));
 
   describe('view1 controller', function(){
 

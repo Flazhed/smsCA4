@@ -1,6 +1,6 @@
-describe('myAppRename.factories', function () {
+describe('CA4App.factories', function () {
 
-  beforeEach(module('myAppRename.factories'));
+  beforeEach(module('CA4App.factories'));
 
   describe('InfoFactory', function () {
     var infoFactory;

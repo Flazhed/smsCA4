@@ -1,9 +1,9 @@
-describe('myAppRename.view2 view2Ctrl', function() {
+describe('CA4App.view2 view2Ctrl', function() {
 
   describe('myController', function() {
     var $scope;
 
-    beforeEach(module('myAppRename.view2'));
+    beforeEach(module('CA4App.view2'));
 
     //Mocks for the test
     beforeEach(module({

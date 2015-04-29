@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myAppRename.view2', ['ngRoute'])
+angular.module('CA4App.view2', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/view2', {

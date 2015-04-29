@@ -1,16 +1,17 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-angular.module('myAppRename', [
+angular.module('CA4App', [
   'ngRoute',
-  'myAppRename.controllers',
-  'myAppRename.directives',
-  'myAppRename.services',
-  'myAppRename.factories',
-  'myAppRename.filters',
-  'myAppRename.view1',
-  'myAppRename.view2',
-  'myAppRename.view3'
+  'CA4App.controllers',
+  'CA4App.directives',
+  'CA4App.services',
+  'CA4App.factories',
+  'CA4App.filters',
+  'CA4App.view1',
+  'CA4App.view2',
+  'CA4App.view3',
+  'CA4App.task1'
 ]).
 config(['$routeProvider', function($routeProvider) {
     $routeProvider.otherwise({redirectTo: '/view1'});

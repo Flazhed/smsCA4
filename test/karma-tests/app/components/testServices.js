@@ -1,8 +1,8 @@
 'use strict';
 
-describe('myAppRename.services', function () {
+describe('CA4App.services', function () {
 
-  beforeEach(module('myAppRename.services'));
+  beforeEach(module('CA4App.services'));
 
   describe('InfoService', function () {
 

@@ -1,7 +1,7 @@
 'use strict';
 
-describe('myAppRename.filters', function () {
-  beforeEach(module('myAppRename'));
+describe('CA4App.filters', function () {
+  beforeEach(module('CA4App'));
 
   describe('checkmark', function () {
 
