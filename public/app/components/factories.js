@@ -25,9 +25,7 @@ angular.module('CA4App.factories', []).
         }
 
         task1Factory.getWiki = function(title){
-            //return $http.get('/api/wiki/getWiki/' + title)
-            console.log("test")
-            return "hello brothers";
+            return $http.get('/api/wiki/getWiki/' + title)
         }
 
         return task1Factory;

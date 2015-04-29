@@ -20,7 +20,18 @@ angular.module('CA4App.controllers', []).
 
         }
 
+        $scope.loadAcordion = function(result){
 
+            if(!result.content){
+            Task1Factory.getWiki(result.title)
+                .success(function(data){
+                    result.content = data;
+                })
+                .error(function(error){
+                    result.status = "Error in loadAcordion " + error.message;
+                })
+            }
+        }
 
     }])
 
