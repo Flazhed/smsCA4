@@ -20,17 +20,7 @@ angular.module('CA4App.controllers', []).
 
         }
 
-        $scope.status = {
-            isFirstOpen: true,
-            isFirstDisabled: false
-        };
 
-        $scope.oneAtATime = true;
-
-
-        $scope.groups = [
-
-        ]
 
     }])
 

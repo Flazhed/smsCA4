@@ -1,0 +1,17 @@
+<div ng-controller="Task1Controller">
+
+    <input ng-model="searchField" type="text" placeholder="Search on a topic">
+    <button ng-click="performSearch()">Search</button>
+
+    <br>
+    <ul>
+
+        <li ng-repeat="result in result"><a href="#/wikiDetails/{{result.title}}" tooltip-placement="right" tooltip="{{result.abstract}}">{{result.title}}</a></li>
+        <!--<accordion close-others="oneAtATime">-->
+        <!--<accordion-group heading="{{group.title}}" ng-repeat="group in groups" tooltip-placement="right" tooltip="{{group.abstract}}" ng-click="getContent(group.title)">-->
+        <!--{{group.content}}-->
+        <!--</accordion-group>-->
+        <!--</accordion>-->
+
+    </ul>
+</div>

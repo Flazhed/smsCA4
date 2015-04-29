@@ -11,7 +11,8 @@ angular.module('CA4App', [
   'CA4App.view1',
   'CA4App.view2',
   'CA4App.view3',
-  'CA4App.task1'
+  'CA4App.task1',
+  'CA4App.task2'
 ]).
 config(['$routeProvider', function($routeProvider) {
     $routeProvider.otherwise({redirectTo: '/view1'});
