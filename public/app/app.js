@@ -12,11 +12,12 @@ angular.module('CA4App', [
     'CA4App.view2',
     'CA4App.view3',
     'CA4App.task1',
-    'CA4App.task2'
+    'CA4App.task2',
+    'CA4App.task3'
 ]).
     config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when("/wikiDetails/:title", {
-            templateUrl: "./Task1/task1Details.html",
+            templateUrl: "task1/task1Details.html",
             controller: "Task1ControllerDetails"
         });
         $routeProvider.otherwise({redirectTo: '/task1'});

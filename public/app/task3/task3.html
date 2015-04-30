@@ -1,0 +1,11 @@
+<div ng-controller="Task3Controller">
+
+    <h3>Task 3</h3>
+    <p>{{test}}</p>
+
+    <a ng-repeat="letter in alphabet" href="" ng-click="setActiveSortingLetter(letter)">{{letter}}</a>
+
+<ul>
+    <li ng-repeat="result in results = (allResults | task3Filter:sortingLetter)"><a href="#/categoryTitles/{{result}}" ng-click="setCurrentCategory(result)">{{result}}</a></li>
+</ul>
+</div>

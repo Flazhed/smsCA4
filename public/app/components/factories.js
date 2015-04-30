@@ -31,3 +31,17 @@ angular.module('CA4App.factories', []).
         return task1Factory;
 
     }])
+    .factory('Task3Factory', ['$http', function ($http) {
+
+        var factory = {};
+
+        factory.getCategories = function () {
+            return $http.get('/api/wiki/getCategories');
+        }
+
+        factory.getTitlesByCategory = function(category){
+            return $http.get('api/wiki/getCategories/' + category);
+        }
+
+        return factory;
+    }])

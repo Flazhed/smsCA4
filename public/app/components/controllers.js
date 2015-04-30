@@ -46,7 +46,33 @@ angular.module('CA4App.controllers', []).
             }).error(function (err) {
                 console.log(err);
             });
+    }]).controller("Task3Controller", ["$scope", "$routeParams", "Task3Factory", function ($scope, $routeParams, Task3Factory) {
+
+        $scope.alphabet = "abcdefghijklmnopqrstuvxyz".split("");
+        $scope.sortingLetter = ""; //Should match all strings when starting out.
+        $scope.currentCategory = "";
+
+        $scope.setActiveSortingLetter = function (letter) {
+            $scope.sortingLetter = letter;
+        }
+
+        $scope.setCurrentCategory = function (category) {
+            $scope.currentCategory = category;
+        }
+
+        if($routeParams.category) {
+
+            Task3Factory.getTitlesByCategory($routeParams.category).success(function (data) {
+                    $scope.allResults = data;
+                })
+
+        }
+        else{
+            Task3Factory.getCategories().success(function (data) {
+                $scope.allResults = data;
+            })
+
+        }
+
+        $scope.test = "Task3 is up and running!";
     }]);
-
-
-
