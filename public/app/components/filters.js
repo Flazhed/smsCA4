@@ -16,7 +16,8 @@ angular.module('CA4App.filters', []).
         var out = [];
         input.forEach(function (item) {
           if(item != null){
-          if(item.charAt(0).toLowerCase() == letter){
+            // The "*" sign is used as a wildcard to pass anything through the filter
+          if(item.charAt(0).toLowerCase() == letter || letter === "*"){
             out.push(item);
           }}
 

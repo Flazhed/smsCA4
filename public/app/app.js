@@ -3,6 +3,7 @@
 // Declare app level module which depends on views, and components
 angular.module('CA4App', [
     'ngRoute',
+    'ui.bootstrap',
     'CA4App.controllers',
     'CA4App.directives',
     'CA4App.services',
@@ -13,7 +14,8 @@ angular.module('CA4App', [
     'CA4App.view3',
     'CA4App.task1',
     'CA4App.task2',
-    'CA4App.task3'
+    'CA4App.task3',
+    "CA4App.task4"
 ]).
     config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when("/wikiDetails/:title", {
