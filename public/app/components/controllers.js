@@ -46,6 +46,61 @@ angular.module('CA4App.controllers', []).
             }).error(function (err) {
                 console.log(err);
             });
+    }])
+    .controller("Task4Controller", ['$scope', '$log', 'Task1Factory', function ($scope, $log, Task1Factory) {
+
+        var dataArr = [];
+
+
+        $scope.searchField;
+        $scope.performSearch = function () {
+            Task1Factory.performSearch($scope.searchField)
+                .success(function (data) {
+                    dataArr = data;
+                    $scope.result = data;
+                    $scope.totalItems = dataArr.length;
+                    console.log(dataArr.length);
+
+                    $scope.currentPage = 1;
+                    $scope.numPerPage = 10;
+                    $scope.maxSize = 5;
+
+                    $scope.setPage = function (pageNo) {
+                        $scope.currentPage = pageNo;
+                    };
+
+
+                    $scope.numPages = dataArr.length;
+
+
+                    $scope.$watch('currentPage + numPerPage', function () {
+                        var begin = (($scope.currentPage - 1) * $scope.numPerPage)
+                            , end = begin + $scope.numPerPage;
+
+                        $scope.filtedData = dataArr.slice(begin, end);
+                    });
+
+                })
+                .error(function (error) {
+                    $scope.status = "Error error " + error.message;
+                })
+
+        }
+
+        $scope.loadAcordion = function (result) {
+
+            if (!result.content) {
+                Task1Factory.getWiki(result.title)
+                    .success(function (data) {
+                        result.content = data;
+                    })
+                    .error(function (error) {
+                        result.status = "Error in loadAcordion " + error.message;
+                    })
+            }
+        }
+
+
     }]);
 
 
