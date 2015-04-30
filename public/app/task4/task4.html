@@ -13,7 +13,7 @@
     <ul>
 
         <li ng-repeat="result in filtedData"><a href="#/wikiDetails/{{result.title}}" tooltip-placement="right"
-                                            tooltip="{{result.abstract}}">{{result.title}}</a></li>
+                                                tooltip="{{result.abstract}}">{{result.title}}</a></li>
         <!--<accordion close-others="oneAtATime">-->
         <!--<accordion-group heading="{{group.title}}" ng-repeat="group in groups" tooltip-placement="right" tooltip="{{group.abstract}}" ng-click="getContent(group.title)">-->
         <!--{{group.content}}-->
@@ -21,7 +21,9 @@
         <!--</accordion>-->
 
     </ul>
-    <div style="float: left;" data-pagination="" total-items="numPages"
-         ng-model="currentPage" data-max-size="maxSize"
-         data-boundary-links="true"></div>
+    <pagination ng-hide="checked" ng-change="pageChanged()" total-items="bigTotalItems" ng-model="bigCurrentPage"
+                max-size="maxSize"
+                class="pagination-sm" items-per-page="itemPage" boundary-links="true" rotate="false"></pagination>
+
+
 </div>
