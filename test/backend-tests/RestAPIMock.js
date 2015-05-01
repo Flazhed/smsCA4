@@ -62,7 +62,7 @@ describe("RestAPI Mock", function () {
 
     describe("Testing getWiki/:title", function () {
 
-        var JavaArr = [{title: "Java", abstract: "JavaScript is Java in coke"}, {
+        var JavaArr = [{title: "Java", abstract: "JavaScript is Java on coke"}, {
             title: "Java++",
             abstract: "Java on crack-cocaine"
         }];
@@ -79,7 +79,7 @@ describe("RestAPI Mock", function () {
             request.get(baseUrl + "/wiki/getWiki/Java", function (err, res, body) {
                 var result = JSON.parse(body);
                 result.should.have.length(2);
-                result[0].abstract.should.eql("JavaScript is Java in coke");
+                result[0].abstract.should.eql("JavaScript is Java on coke");
                 result[1].title.should.eql("Java++")
                 done();
             })
