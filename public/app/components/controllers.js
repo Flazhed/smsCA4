@@ -46,6 +46,89 @@ angular.module('CA4App.controllers', []).
             }).error(function (err) {
                 console.log(err);
             });
+    }]).controller("Task3Controller", ["$scope", "$routeParams", "Task3Factory", function ($scope, $routeParams, Task3Factory) {
+
+        //The "*" sign is used as a wildcard for all
+        $scope.alphabet = "*abcdefghijklmnopqrstuvxyz".split("");
+        $scope.sortingLetter = "*"; //Should match all strings when starting out.
+        $scope.currentCategory = "";
+
+        $scope.setActiveSortingLetter = function (letter) {
+            $scope.sortingLetter = letter;
+        }
+
+        $scope.setCurrentCategory = function (category) {
+            $scope.currentCategory = category;
+        }
+
+        if($routeParams.category) {
+
+            Task3Factory.getTitlesByCategory($routeParams.category).success(function (data) {
+                console.log("GETTING TITLES FROM PARAMS");
+                console.log("PARAMS: " + $routeParams.category);
+                $scope.allResults = data;
+            })
+
+        }
+        else{
+            Task3Factory.getCategories().success(function (data) {
+                console.log("GETTING DATA FROM DB");
+                $scope.allResults = data;
+            })
+
+        }
+
+        $scope.test = "Task3 is up and running!";
+    }])
+    .controller("Task4Controller", ['$scope', '$log', 'Task1Factory', function ($scope, $log, Task1Factory) {
+
+        //Stores the result, from the database
+        $scope.result = [];
+        //Hides the pagination
+        $scope.checked = true;
+        //size of the pagination
+        $scope.maxSize = 10;
+        //amount of items pr "page"
+        $scope.itemPage = 30;
+        //sets the start "page"
+        $scope.bigCurrentPage = 1;
+
+        //Sets the currentPage value when a page is changed
+        $scope.setPage = function (pageNo) {
+            $scope.bigCurrentPage = pageNo;
+        };
+
+        //Filters the array, when a page is changed.
+        $scope.pageChanged = function () {
+            //$log.log('Page changed to: ' + $scope.bigCurrentPage);
+            var begin = (($scope.bigCurrentPage - 1) * $scope.itemPage)
+                , end = begin + $scope.itemPage;
+
+            $scope.filtedData = $scope.result.slice(begin, end);
+        };
+
+        //HTTP get stuff
+        $scope.searchField;
+
+        $scope.performSearch = function () {
+            Task1Factory.performSearch($scope.searchField)
+                .success(function (data) {
+                    $scope.bigCurrentPage = 1;
+                    $scope.checked = false;
+                    $scope.result = data;
+
+                    //sets the amount of items in the pagination.
+                    $scope.bigTotalItems = data.length;
+                    //Called to setup of the list for the first time.
+                    $scope.pageChanged();
+
+                })
+                .error(function (error) {
+                    $scope.status = "Error error " + error.message;
+                })
+
+        };
+
     }]);
 
 

@@ -1,0 +1,29 @@
+<div ng-controller="Task4Controller">
+
+    <h3>Task 4</h3>
+
+    <form class="form-inline">
+        <input class="form-control" ng-model="searchField" type="text" placeholder="Search on a topic">
+        <button class="btn btn-primary" ng-click="performSearch()"><span
+                class="glyphicon glyphicon-chevron-down"></span> Search
+        </button>
+    </form>
+
+    <br>
+    <ul>
+
+        <li ng-repeat="result in filtedData"><a href="#/wikiDetails/{{result.title}}" tooltip-placement="right"
+                                                tooltip="{{result.abstract}}">{{result.title}}</a></li>
+        <!--<accordion close-others="oneAtATime">-->
+        <!--<accordion-group heading="{{group.title}}" ng-repeat="group in groups" tooltip-placement="right" tooltip="{{group.abstract}}" ng-click="getContent(group.title)">-->
+        <!--{{group.content}}-->
+        <!--</accordion-group>-->
+        <!--</accordion>-->
+
+    </ul>
+    <pagination ng-hide="checked" ng-change="pageChanged()" total-items="bigTotalItems" ng-model="bigCurrentPage"
+                max-size="maxSize"
+                class="pagination-sm" items-per-page="itemPage" boundary-links="true" rotate="false"></pagination>
+
+
+</div>
