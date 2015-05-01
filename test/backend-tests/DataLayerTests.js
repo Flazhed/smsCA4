@@ -43,26 +43,54 @@ describe("Testing of the Wiki Facade", function(){
 
     })
 
-    //it("findWiki - Should return a list of titles and abstracts of wiki objects that matches the search", function(done){
-    //
-    //
-    //
-    //
-    //})
-    //
-    //it("getCategories - Should return a list of all distinct categories", function(done){
-    //
-    //
-    //
-    //
-    //})
-    //
-    //
-    //it("getWikisWithCategory - Should return a list of title and abstract for wiki objects that matches the given category", function(done){
-    //
-    //
-    //
-    //
-    //})
+    it("findWiki - Should return a list of titles and abstracts of wiki objects that matches the search", function(done){
+
+
+        var serchString = "economy";
+
+        wikiFacade.findWiki(serchString, function(err, result){
+
+            var resultList = JSON.parse(result);
+
+            resultList.length.should.equal(1);
+
+            done();
+
+
+        })
+
+
+
+
+
+
+    })
+
+    it("getCategories - Should return a list of all distinct categories", function(done){
+
+        wikiFacade.getCategories(function(err, result){
+            JSON.parse(result).length.should.equal(8);
+            done()
+        })
+
+
+
+    })
+
+
+    it("getWikisWithCategory - Should return a list of title and abstract for wiki objects that matches the given category", function(done){
+
+
+        var searchCategory = "Agriculture";
+
+        wikiFacade.findWiki(searchCategory, function(err, result){
+
+            var resultList = JSON.parse(result);
+            resultList.length.should.equal(1)
+            done();
+
+        })
+
+    })
 
 })
