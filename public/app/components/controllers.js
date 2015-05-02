@@ -66,6 +66,7 @@ angular.module('CA4App.controllers', []).
             Task3Factory.getTitlesByCategory($routeParams.category).success(function (data) {
                 console.log("GETTING TITLES FROM PARAMS");
                 console.log("PARAMS: " + $routeParams.category);
+                $scope.currentCategory = $routeParams.category;
                 $scope.allResults = data;
             })
 

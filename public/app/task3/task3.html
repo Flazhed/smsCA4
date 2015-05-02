@@ -3,7 +3,7 @@
     <h3>Task 3</h3>
     <p>{{test}}</p>
 
-    <a ng-repeat="letter in alphabet" href="" ng-click="setActiveSortingLetter(letter)">{{letter}}</a>
+    <a ng-repeat="letter in alphabet" href="" ng-click="setActiveSortingLetter(letter)"><button class="btn btn-default">{{letter}}</button></a>
 
 <ul>
     <li ng-repeat="result in results = (allResults | task3Filter:sortingLetter)"><a href="#/categoryTitles/{{result}}" ng-click="setCurrentCategory(result)">{{result}}</a></li>
